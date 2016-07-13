@@ -2,7 +2,6 @@ import {autoinject, newInstance} from "aurelia-property-injection";
 import {BindingEngine} from "aurelia-binding";
 import {SecurityContext} from "aurelia-security";
 import {Router, RouteConfig} from "aurelia-router";
-import {I18N} from "aurelia-i18n";
 import {DialogService} from "aurelia-dialog";
 import {NotificationManager} from "aurelia-push";
 import {ProgressIndicator} from "aurelia-progress";
@@ -33,9 +32,6 @@ export abstract class ListViewModel<E> extends AbstractComponent {
 
     @autoinject
     protected router: Router;
-
-    @autoinject
-    protected i18n: I18N;
 
     @autoinject
     protected dialogService: DialogService;
@@ -89,7 +85,6 @@ export abstract class ListViewModel<E> extends AbstractComponent {
 
     public unbind(): void {
         super.unbind();
-        this.storage.set(`${this.constructor.name}.currentFilter`, this.filters.indexOf(this.currentFilter));
     }
 
     public activateFilter(filter: FilterBinding): void {
@@ -99,6 +94,7 @@ export abstract class ListViewModel<E> extends AbstractComponent {
         this.collector.count(filter.query).then(count => filter.count = count).then(() => {
             filter.loading = false;
         });
+        this.storage.set(`${this.constructor.name}.currentFilter`, this.filters.indexOf(this.currentFilter));
     }
 
     public resetCustomFilter(): void {

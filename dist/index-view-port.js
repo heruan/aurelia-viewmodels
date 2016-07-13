@@ -8,11 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var aurelia_dependency_injection_1 = require("aurelia-dependency-injection");
+var aurelia_property_injection_1 = require("aurelia-property-injection");
 var aurelia_binding_1 = require("aurelia-binding");
 var IndexViewPort = (function () {
-    function IndexViewPort(bindingEngine) {
-        this.bindingEngine = bindingEngine;
+    function IndexViewPort() {
     }
     IndexViewPort.prototype.configureRouter = function (routerConfiguration, router) {
         this.router = router;
@@ -58,10 +57,10 @@ var IndexViewPort = (function () {
             routeConfig.navModel.setTitle(this.title);
         }
     };
-    IndexViewPort = __decorate([
-        aurelia_dependency_injection_1.autoinject, 
-        __metadata('design:paramtypes', [aurelia_binding_1.BindingEngine])
-    ], IndexViewPort);
+    __decorate([
+        aurelia_property_injection_1.autoinject, 
+        __metadata('design:type', aurelia_binding_1.BindingEngine)
+    ], IndexViewPort.prototype, "bindingEngine", void 0);
     return IndexViewPort;
 }());
 exports.IndexViewPort = IndexViewPort;

@@ -6,7 +6,6 @@ export declare abstract class IndexViewPort implements RouterViewPort {
     protected bindingEngine: BindingEngine;
     protected router: Router;
     protected title: string;
-    constructor(bindingEngine: BindingEngine);
     configureRouter(routerConfiguration: RouterConfiguration, router: Router): void;
     canActivate(params: Object, routeConfig?: RouteConfig, navigationInstruction?: NavigationInstruction): Promise<boolean>;
     activate(params: Object, routeConfig?: RouteConfig, navigationInstruction?: NavigationInstruction): Promise<any>;

@@ -17,7 +17,6 @@ var aurelia_property_injection_1 = require("aurelia-property-injection");
 var aurelia_binding_1 = require("aurelia-binding");
 var aurelia_security_1 = require("aurelia-security");
 var aurelia_router_1 = require("aurelia-router");
-var aurelia_i18n_1 = require("aurelia-i18n");
 var aurelia_dialog_1 = require("aurelia-dialog");
 var aurelia_push_1 = require("aurelia-push");
 var aurelia_progress_1 = require("aurelia-progress");
@@ -62,7 +61,6 @@ var ListViewModel = (function (_super) {
     };
     ListViewModel.prototype.unbind = function () {
         _super.prototype.unbind.call(this);
-        this.storage.set(this.constructor.name + ".currentFilter", this.filters.indexOf(this.currentFilter));
     };
     ListViewModel.prototype.activateFilter = function (filter) {
         this.collector.activate(filter);
@@ -71,6 +69,7 @@ var ListViewModel = (function (_super) {
         this.collector.count(filter.query).then(function (count) { return filter.count = count; }).then(function () {
             filter.loading = false;
         });
+        this.storage.set(this.constructor.name + ".currentFilter", this.filters.indexOf(this.currentFilter));
     };
     ListViewModel.prototype.resetCustomFilter = function () {
         this.collector.reset();
@@ -146,10 +145,6 @@ var ListViewModel = (function (_super) {
         aurelia_property_injection_1.autoinject, 
         __metadata('design:type', aurelia_router_1.Router)
     ], ListViewModel.prototype, "router", void 0);
-    __decorate([
-        aurelia_property_injection_1.autoinject, 
-        __metadata('design:type', aurelia_i18n_1.I18N)
-    ], ListViewModel.prototype, "i18n", void 0);
     __decorate([
         aurelia_property_injection_1.autoinject, 
         __metadata('design:type', aurelia_dialog_1.DialogService)

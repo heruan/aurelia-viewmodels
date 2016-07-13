@@ -1,6 +1,6 @@
 {
   "name": "aurelia-viewmodels",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A plugin for Aurelia based projects.",
   "keywords": [
     "aurelia",
@@ -22,15 +22,14 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "aurelia-components": "^0.2.1",
-    "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
-    "aurelia-dialog": "^1.0.0-beta.1.1.0",
-    "aurelia-i18n": "^1.0.0-rc.1.0.0",
-    "aurelia-persistence": "^0.3.0",
+    "aurelia-components": "^0.2.2",
+    "aurelia-dependency-injection": "^1.0.0-rc.1.0.1",
+    "aurelia-dialog": "^1.0.0-beta.2.0.0",
+    "aurelia-persistence": "^0.3.1",
     "aurelia-progress": "^0.2.0",
-    "aurelia-property-injection": "^0.4.0",
+    "aurelia-property-injection": "^0.4.1",
     "aurelia-push": "^0.2.1",
-    "aurelia-security": "^0.2.1",
+    "aurelia-security": "^0.2.2",
     "aurelia-storage": "^0.3.0",
     "aurelia-validation": "^0.10.0"
   },

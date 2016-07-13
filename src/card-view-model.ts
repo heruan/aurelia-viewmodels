@@ -2,12 +2,11 @@ import {autoinject, newInstance} from "aurelia-property-injection";
 import {BindingEngine} from "aurelia-binding";
 import {SecurityContext} from "aurelia-security";
 import {Router, RouteConfig} from "aurelia-router";
-import {I18N} from "aurelia-i18n";
 import {DialogService} from "aurelia-dialog";
 import {NotificationManager} from "aurelia-push";
 import {ProgressIndicator} from "aurelia-progress";
 import {ValidationController} from "aurelia-validation";
-import {EntityCollector, FilterBinding, Sorting} from "aurelia-persistence";
+import {DataAccessObject} from "aurelia-persistence";
 import {LocalStorage} from "aurelia-storage";
 import {AbstractComponent} from "aurelia-components";
 import {View} from "aurelia-templating";
@@ -27,9 +26,6 @@ export abstract class CardViewModel<E> extends AbstractComponent {
     protected router: Router;
 
     @autoinject
-    protected i18n: I18N;
-
-    @autoinject
     protected dialogService: DialogService;
 
     @autoinject
@@ -41,8 +37,13 @@ export abstract class CardViewModel<E> extends AbstractComponent {
     @newInstance(ValidationController)
     protected validationController: ValidationController;
 
-    public constructor() {
+    protected dataAccessObject: DataAccessObject<E>;
+
+    protected entity: E;
+
+    public constructor(dataAccessObject: DataAccessObject<E>) {
         super();
+        this.dataAccessObject = dataAccessObject;
     }
 
     public created(owningView: View, myView: View): void {

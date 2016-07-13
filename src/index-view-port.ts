@@ -1,21 +1,17 @@
-import {autoinject} from "aurelia-dependency-injection";
+import {autoinject} from "aurelia-property-injection";
 import {BindingEngine} from "aurelia-binding";
 import {View} from "aurelia-templating";
 import {Router, RouterConfiguration, RouteConfig, NavigationInstruction} from "aurelia-router";
 import {RouterViewPort} from "aurelia-components";
 
-@autoinject
 export abstract class IndexViewPort implements RouterViewPort {
 
+    @autoinject
     protected bindingEngine: BindingEngine;
 
     protected router: Router;
 
     protected title: string;
-
-    public constructor(bindingEngine: BindingEngine) {
-        this.bindingEngine = bindingEngine;
-    }
 
     public configureRouter(routerConfiguration: RouterConfiguration, router: Router): void {
         this.router = router;

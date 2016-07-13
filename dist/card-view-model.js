@@ -17,7 +17,6 @@ var aurelia_property_injection_1 = require("aurelia-property-injection");
 var aurelia_binding_1 = require("aurelia-binding");
 var aurelia_security_1 = require("aurelia-security");
 var aurelia_router_1 = require("aurelia-router");
-var aurelia_i18n_1 = require("aurelia-i18n");
 var aurelia_dialog_1 = require("aurelia-dialog");
 var aurelia_push_1 = require("aurelia-push");
 var aurelia_progress_1 = require("aurelia-progress");
@@ -26,8 +25,9 @@ var aurelia_storage_1 = require("aurelia-storage");
 var aurelia_components_1 = require("aurelia-components");
 var CardViewModel = (function (_super) {
     __extends(CardViewModel, _super);
-    function CardViewModel() {
+    function CardViewModel(dataAccessObject) {
         _super.call(this);
+        this.dataAccessObject = dataAccessObject;
     }
     CardViewModel.prototype.created = function (owningView, myView) {
         _super.prototype.created.call(this, owningView, myView);
@@ -60,10 +60,6 @@ var CardViewModel = (function (_super) {
         aurelia_property_injection_1.autoinject, 
         __metadata('design:type', aurelia_router_1.Router)
     ], CardViewModel.prototype, "router", void 0);
-    __decorate([
-        aurelia_property_injection_1.autoinject, 
-        __metadata('design:type', aurelia_i18n_1.I18N)
-    ], CardViewModel.prototype, "i18n", void 0);
     __decorate([
         aurelia_property_injection_1.autoinject, 
         __metadata('design:type', aurelia_dialog_1.DialogService)
